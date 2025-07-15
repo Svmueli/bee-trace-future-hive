@@ -11,6 +11,8 @@ import TrackHoney from "./pages/TrackHoney";
 import Invest from "./pages/Invest";
 import Credits from "./pages/Credits";
 import Profile from "./pages/Profile";
+import Marketplace from "./pages/Marketplace";
+import WalletLogin from "./pages/WalletLogin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/track" element={<TrackHoney />} />
           <Route path="/invest" element={<Invest />} />
           <Route path="/credits" element={<Credits />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/wallet-login" element={<WalletLogin />} />
           <Route path="/profile" element={<Profile />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

@@ -26,17 +26,17 @@ const Index = () => {
             Ready to Transform Kenyan Beekeeping?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of beekeepers, investors, and environmental champions building a sustainable future.
+            Join thousands of beekeepers, investors, and environmental champions building a sustainable future through our marketplace.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/dashboard">
+            <Link to="/wallet-login">
               <Button size="lg" className="bg-white text-green-600 hover:bg-gray-100 font-semibold px-8 py-3">
-                Get Started Now
+                Connect Wallet
               </Button>
             </Link>
-            <Link to="/track">
+            <Link to="/marketplace">
               <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-green-600 font-semibold px-8 py-3">
-                Track Your Honey
+                Explore Marketplace
               </Button>
             </Link>
           </div>
