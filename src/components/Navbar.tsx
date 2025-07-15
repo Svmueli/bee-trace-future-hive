@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Home, Search, CirclePlus, User, Menu, X } from 'lucide-react';
+import { Home, Search, CirclePlus, User, Menu, X, TrendingUp } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,6 +16,7 @@ const Navbar = () => {
     { name: 'Invest', path: '/invest', icon: CirclePlus },
     { name: 'Credits', path: '/credits', icon: CirclePlus },
     { name: 'Dashboard', path: '/dashboard', icon: User },
+    { name: 'Investor', path: '/investor-dashboard', icon: TrendingUp },
   ];
 
   return (

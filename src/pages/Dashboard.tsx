@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Search, CirclePlus, User, ArrowUp, CircleCheck } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Dashboard = () => {
   const [userStats] = useState({
@@ -188,6 +189,8 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <Footer />
     </div>
   );
 };
