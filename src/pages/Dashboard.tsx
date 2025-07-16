@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { Search, CirclePlus, User, ArrowUp, CircleCheck } from 'lucide-react';
-import Navbar from '@/components/Navbar';
+import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';
 
 const Dashboard = () => {
@@ -18,8 +18,7 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-green-50">
-      <Navbar />
+    <Layout>
       
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
@@ -190,8 +189,7 @@ const Dashboard = () => {
         </Card>
       </div>
 
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

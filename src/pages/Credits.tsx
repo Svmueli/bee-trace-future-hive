@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { User, MapPin, CircleCheck, ArrowUp } from 'lucide-react';
-import Navbar from '@/components/Navbar';
+import Layout from '@/components/Layout';
 import { toast } from '@/hooks/use-toast';
 
 const Credits = () => {
@@ -104,8 +104,7 @@ const Credits = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-green-50">
-      <Navbar />
+    <Layout>
       
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
@@ -355,7 +354,7 @@ const Credits = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </Layout>
   );
 };
 

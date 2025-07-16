@@ -1,40 +1,23 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Dashboard from "./pages/Dashboard";
-import InvestorDashboard from "./pages/InvestorDashboard";
-import TrackHoney from "./pages/TrackHoney";
-import Invest from "./pages/Invest";
-import Credits from "./pages/Credits";
-import Profile from "./pages/Profile";
-import Marketplace from "./pages/Marketplace";
-import WalletLogin from "./pages/WalletLogin";
-import NotFound from "./pages/NotFound";
+import { routes } from "@/lib/routes";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/investor-dashboard" element={<InvestorDashboard />} />
-          <Route path="/track" element={<TrackHoney />} />
-          <Route path="/invest" element={<Invest />} />
-          <Route path="/credits" element={<Credits />} />
-          <Route path="/marketplace" element={<Marketplace />} />
-          <Route path="/wallet-login" element={<WalletLogin />} />
-          <Route path="/profile" element={<Profile />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          {routes.map(({ path, component: Component }) => (
+            <Route 
+              key={path} 
+              path={path} 
+              element={<Component />} 
+            />
+          ))}
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

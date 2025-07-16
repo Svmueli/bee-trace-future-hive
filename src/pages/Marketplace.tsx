@@ -5,13 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Leaf, TrendingUp, Coins, Users } from 'lucide-react';
-import Navbar from '@/components/Navbar';
+import Layout from '@/components/Layout';
 import Footer from '@/components/Footer';
 
 const Marketplace = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-green-50">
-      <Navbar />
+    <Layout>
       
       {/* Hero Section */}
       <section className="py-16 px-4">
@@ -128,8 +127,7 @@ const Marketplace = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

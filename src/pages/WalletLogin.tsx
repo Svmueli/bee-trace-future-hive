@@ -4,8 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Wallet, Shield, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Layout from '@/components/Layout';
 
 const WalletLogin = () => {
   const [connecting, setConnecting] = useState(false);
@@ -21,8 +20,7 @@ const WalletLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-green-50">
-      <Navbar />
+    <Layout>
       
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto">
@@ -101,8 +99,7 @@ const WalletLogin = () => {
         </div>
       </section>
 
-      <Footer />
-    </div>
+    </Layout>
   );
 };
 

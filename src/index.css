@@ -8,35 +8,48 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* BeeTrace Color System - Based on honey/amber and nature/green */
+    --background: 45 100% 99%;
+    --foreground: 39 84% 8%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 45 100% 98%;
+    --card-foreground: 39 84% 8%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 45 100% 98%;
+    --popover-foreground: 39 84% 8%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Honey/Amber theme */
+    --primary: 45 93% 47%;
+    --primary-foreground: 45 100% 99%;
+    --primary-glow: 45 95% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Nature/Green theme */
+    --secondary: 142 76% 36%;
+    --secondary-foreground: 45 100% 99%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 45 50% 95%;
+    --muted-foreground: 39 32% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 50% 90%;
+    --accent-foreground: 142 76% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 100% 99%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 45 20% 88%;
+    --input: 45 20% 88%;
+    --ring: 45 93% 47%;
 
-    --radius: 0.5rem;
+    /* BeeTrace specific gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(142 60% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--secondary)));
+
+    /* Glass effect backgrounds */
+    --glass-bg: rgba(255, 248, 225, 0.85);
+    --glass-border: rgba(245, 158, 11, 0.2);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
