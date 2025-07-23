@@ -14,7 +14,6 @@ const Navbar = () => {
     { name: 'Home', path: '/', icon: Home },
     { name: 'Marketplace', path: '/marketplace', icon: ShoppingBag },
     { name: 'Credits', path: '/credits', icon: CirclePlus },
-    { name: 'Dashboard', path: '/dashboard', icon: User },
   ];
 
   return (
