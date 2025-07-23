@@ -9,6 +9,8 @@ import Profile from '@/pages/Profile';
 import Marketplace from '@/pages/Marketplace';
 import WalletLogin from '@/pages/WalletLogin';
 import RoleSelection from '@/pages/RoleSelection';
+import LearnWallet from '@/pages/LearnWallet';
+import ProfileSettings from '@/pages/ProfileSettings';
 import NotFound from '@/pages/NotFound';
 
 export interface RouteConfig {
@@ -77,9 +79,22 @@ export const routes: RouteConfig[] = [
     description: 'Select your role as beekeeper or investor'
   },
   {
+    path: '/learn-wallet',
+    component: LearnWallet,
+    title: 'Learn Wallet',
+    description: 'Learn how to create and use crypto wallets'
+  },
+  {
     path: '/profile',
     component: Profile,
     title: 'Profile',
+    description: 'View your profile and activity',
+    protected: true
+  },
+  {
+    path: '/profile/settings',
+    component: ProfileSettings,
+    title: 'Profile Settings',
     description: 'Manage your profile and settings',
     protected: true
   },

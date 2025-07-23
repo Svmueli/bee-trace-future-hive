@@ -14,8 +14,22 @@ const WalletLogin = () => {
     // Simulate wallet connection
     setTimeout(() => {
       setConnecting(false);
-      // Redirect to role selection after wallet connection
-      window.location.href = '/role-selection';
+      
+      // Check if user already has a role selected
+      const existingRole = localStorage.getItem('userRole');
+      
+      if (existingRole) {
+        // User already has a role, redirect to appropriate dashboard
+        localStorage.setItem('walletConnected', 'true');
+        if (existingRole === 'beekeeper') {
+          window.location.href = '/dashboard';
+        } else {
+          window.location.href = '/investor-dashboard';
+        }
+      } else {
+        // New user, redirect to role selection
+        window.location.href = '/role-selection';
+      }
     }, 2000);
   };
 
@@ -25,10 +39,10 @@ const WalletLogin = () => {
       <section className="py-16 px-4">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              Connect Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-green-500">Wallet</span>
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Connect Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Wallet</span>
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-muted-foreground">
               Choose your preferred wallet to access the BeeTrace platform
             </p>
           </div>
@@ -89,11 +103,11 @@ const WalletLogin = () => {
           )}
 
           <div className="text-center mt-8">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               Don't have a wallet?{' '}
-              <a href="#" className="text-amber-600 hover:text-amber-700 font-medium">
+              <Link to="/learn-wallet" className="text-primary hover:text-primary/80 font-medium">
                 Learn how to create one
-              </a>
+              </Link>
             </p>
           </div>
         </div>

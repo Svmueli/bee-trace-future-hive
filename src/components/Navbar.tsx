@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Home, Search, CirclePlus, User, Menu, X, ShoppingBag, LogOut } from 'lucide-react';
+import { Home, Search, CirclePlus, User, Menu, X, ShoppingBag, LogOut, Settings } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,11 +24,18 @@ const Navbar = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  const navItems = [
+  const baseNavItems = [
     { name: 'Home', path: '/', icon: Home },
     { name: 'Marketplace', path: '/marketplace', icon: ShoppingBag },
     { name: 'Credits', path: '/credits', icon: CirclePlus },
   ];
+
+  const authenticatedNavItems = [
+    { name: 'Profile', path: '/profile', icon: User },
+    { name: 'Settings', path: '/profile/settings', icon: Settings },
+  ];
+
+  const navItems = isWalletConnected ? [...baseNavItems, ...authenticatedNavItems] : baseNavItems;
 
   return (
     <nav className="glass-card sticky top-0 z-50 border-b border-white/20 shadow-xl">
