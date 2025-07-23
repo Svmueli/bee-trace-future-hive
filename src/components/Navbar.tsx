@@ -1,12 +1,26 @@
 
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Home, Search, CirclePlus, User, Menu, X, ShoppingBag } from 'lucide-react';
+import { Home, Search, CirclePlus, User, Menu, X, ShoppingBag, LogOut } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const walletConnected = localStorage.getItem('walletConnected') === 'true';
+    setIsWalletConnected(walletConnected);
+  }, [location]);
+
+  const handleLogout = () => {
+    localStorage.removeItem('walletConnected');
+    localStorage.removeItem('userRole');
+    setIsWalletConnected(false);
+    navigate('/');
+  };
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -63,11 +77,22 @@ const Navbar = () => {
 
           {/* CTA Button with enhanced styling */}
           <div className="hidden md:block">
-            <Link to="/wallet-login">
-              <Button className="btn-modern bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-                Connect Wallet
+            {isWalletConnected ? (
+              <Button 
+                onClick={handleLogout}
+                variant="outline"
+                className="font-bold px-8 py-4 rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center gap-2"
+              >
+                <LogOut className="h-4 w-4" />
+                Logout
               </Button>
-            </Link>
+            ) : (
+              <Link to="/wallet-login">
+                <Button className="btn-modern bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+                  Connect Wallet
+                </Button>
+              </Link>
+            )}
           </div>
 
           {/* Mobile menu button with enhanced design */}
@@ -103,11 +128,25 @@ const Navbar = () => {
                   <span className="font-bold">{item.name}</span>
                 </Link>
               ))}
-              <Link to="/wallet-login" onClick={() => setIsMenuOpen(false)} className="mx-2 mt-4">
-                <Button className="w-full btn-modern bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold py-4 rounded-2xl shadow-lg">
-                  Connect Wallet
+              {isWalletConnected ? (
+                <Button 
+                  onClick={() => {
+                    handleLogout();
+                    setIsMenuOpen(false);
+                  }}
+                  variant="outline"
+                  className="w-full font-bold py-4 rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 flex items-center justify-center gap-2 mx-2 mt-4"
+                >
+                  <LogOut className="h-4 w-4" />
+                  Logout
                 </Button>
-              </Link>
+              ) : (
+                <Link to="/wallet-login" onClick={() => setIsMenuOpen(false)} className="mx-2 mt-4">
+                  <Button className="w-full btn-modern bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground font-bold py-4 rounded-2xl shadow-lg">
+                    Connect Wallet
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         )}

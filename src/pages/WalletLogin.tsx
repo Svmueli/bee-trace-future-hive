@@ -14,8 +14,8 @@ const WalletLogin = () => {
     // Simulate wallet connection
     setTimeout(() => {
       setConnecting(false);
-      // Redirect based on user type - for demo purposes, redirect to dashboard
-      window.location.href = '/dashboard';
+      // Redirect to role selection after wallet connection
+      window.location.href = '/role-selection';
     }, 2000);
   };
 

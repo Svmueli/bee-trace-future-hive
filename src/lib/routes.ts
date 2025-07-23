@@ -8,6 +8,7 @@ import Credits from '@/pages/Credits';
 import Profile from '@/pages/Profile';
 import Marketplace from '@/pages/Marketplace';
 import WalletLogin from '@/pages/WalletLogin';
+import RoleSelection from '@/pages/RoleSelection';
 import NotFound from '@/pages/NotFound';
 
 export interface RouteConfig {
@@ -68,6 +69,12 @@ export const routes: RouteConfig[] = [
     component: WalletLogin,
     title: 'Connect Wallet',
     description: 'Connect your crypto wallet to access the platform'
+  },
+  {
+    path: '/role-selection',
+    component: RoleSelection,
+    title: 'Choose Role',
+    description: 'Select your role as beekeeper or investor'
   },
   {
     path: '/profile',
